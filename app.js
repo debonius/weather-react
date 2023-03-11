@@ -1,21 +1,8 @@
 'use strict';
 
-function LikeButton() {
-  const [liked, setLiked] = React.useState(false);
-
-  if (liked) {
-    return 'You liked this!';
-  }
-
-  return React.createElement(
-    'button',
-    {
-      onClick: () => setLiked(true),
-    },
-    'Like'
-  );
+function App() {
+  return /*#__PURE__*/React.createElement(Search, null);
 }
-
-const rootNode = document.getElementById('app');
-const root = ReactDOM.createRoot(rootNode);
-root.render(React.createElement(LikeButton));
+var rootNode = document.getElementById('app');
+var root = ReactDOM.createRoot(rootNode);
+root.render( /*#__PURE__*/React.createElement(App, null));
