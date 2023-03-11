@@ -20,6 +20,6 @@ function Search() {
     hidden: true
   }));
 }
-var rootNode = document.getElementById('search');
+var rootNode = document.getElementById('app');
 var root = ReactDOM.createRoot(rootNode);
 root.render( /*#__PURE__*/React.createElement(Search, null));
