@@ -21,50 +21,62 @@ body {
     justify-content: space-between;
   }
 }
+@media screen and (min-width: 992px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 form {
-  width: 100vw;
-  height: 5vh;
-  margin-bottom: 1em;
-  text-align: center;
-}
-@media screen and (orientation: landscape) {
-  form {
-    position: fixed;
-    width: 80vw;
-  }
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 form::after {
   content: "press ENTER key to refresh";
+  display: block;
   font-size: 12px;
   font-style: italic;
 }
 form input {
-  width: 100%;
-  height: 2em;
+  width: 340px;
+  margin: 5px auto;
+  height: 50px;
   text-align: center;
   font-size: 1em;
-  border: none;
-  background: rgba(34, 34, 34, 0.8);
+  border: 1px solid darkgrey;
+  border-radius: 30px;
+  background: rgba(43, 45, 57, 0.54);
   color: white;
 }
 form input:focus-visible {
-  outline-color: #932faf;
+  outline-color: #03a9f4;
+}
+form input::placeholder {
+  color: rgba(255, 255, 255, 0.604);
+  opacity: 0.6; /* Firefox */
 }
 
 main {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   gap: 1em;
-  align-items: flex-end;
-  padding-right: 5%;
   text-align: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (max-width: 767px) {
   main {
-    gap: 0;
-    width: 80%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+}
+@media screen and (min-width: 768px) {
+  main {
+    height: 90vh;
   }
 }
 main::after {
@@ -89,12 +101,22 @@ main .icon {
   justify-content: flex-end;
 }
 main .icon .weather-icon {
-  width: 38px;
+  width: 80px;
 }
 main .temp {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+@media screen and (orientation: landscape) {
+  main .temp {
+    max-width: 45%;
+  }
+}
+@media screen and (min-width: 992px) {
+  main .temp {
+    max-width: 25%;
+  }
 }
 main .temp .c {
   font-size: 4rem;
@@ -102,6 +124,7 @@ main .temp .c {
 }
 @media screen and (orientation: landscape) {
   main .temp .c {
+    display: block;
     width: 60vw;
     text-align: right;
   }
@@ -111,18 +134,26 @@ main .temp .feel::before {
   font-style: italic;
 }
 
+.city {
+  width: min-content;
+}
+
 article {
   display: flex;
-  align-items: center;
-  margin-top: 1em;
-  background-image: linear-gradient(360deg, rgba(33, 212, 253, 0.7019607843) 0%, rgba(183, 33, 255, 0.631372549) 100%);
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  background-image: linear-gradient(360deg, #3f51b5 0%, #03a9f4 100%);
 }
 @media screen and (orientation: landscape) {
   article {
-    margin-top: 0;
     flex-direction: column;
     justify-content: center;
-    width: 20vw;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    width: 90px;
+    height: 100vh;
   }
 }
 article .info-box {
